@@ -1,12 +1,12 @@
-import { HStack, Image, Text } from "@chakra-ui/react";
-import React from "react";
+import { HStack, Image } from "@chakra-ui/react";
 import logo from "../assets/freepik/logo.png";
+import ColorModeSwitch from "./olorModeSwitch";
 
 const NavBar = () => {
   return (
-    <HStack>
+    <HStack justifyContent="space-between" padding="20px">
       <Image src={logo} boxSize="60px" />
-      <Text> MARFA</Text>
+      <ColorModeSwitch />
     </HStack>
   );
 };
