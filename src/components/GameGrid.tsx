@@ -2,6 +2,7 @@ import { SimpleGrid, Text } from "@chakra-ui/react";
 import useGames from "../Hooks/useGames";
 import GameCard from "./GameCard";
 import GameCardSkeleton from "./GameCardSkeleton";
+import GameCardContainer from "./GameCardContainer";
 const GameGrid = () => {
   const { games, error, isLoading } = useGames();
   const Skeletons = [1, 2, 3, 4, 5, 6];
@@ -14,9 +15,15 @@ const GameGrid = () => {
         spacing={10}
       >
         {isLoading &&
-          Skeletons.map((Skeletons) => <GameCardSkeleton key={Skeletons} />)}
+          Skeletons.map((Skeletons) => (
+            <GameCardContainer>
+              <GameCardSkeleton key={Skeletons} />
+            </GameCardContainer>
+          ))}
         {games.map((game) => (
-          <GameCard key={game.id} game={game} />
+          <GameCardContainer>
+            <GameCard key={game.id} game={game} />
+          </GameCardContainer>
         ))}
       </SimpleGrid>
     </>
