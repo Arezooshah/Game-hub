@@ -3,8 +3,14 @@ import useGames from "../Hooks/useGames";
 import GameCard from "./GameCard";
 import GameCardSkeleton from "./GameCardSkeleton";
 import GameCardContainer from "./GameCardContainer";
-const GameGrid = () => {
-  const { data, error, isLoading } = useGames();
+import { Genre } from "../Hooks/useGenres";
+import { Props } from "react-infinite-scroll-component";
+
+interface props {
+  selectedGenre: Genre | null;
+}
+const GameGrid = ({ selectedGenre }: Props) => {
+  const { data, error, isLoading } = useGames(selectedGenre);
   const Skeletons = [1, 2, 3, 4, 5, 6];
   return (
     <>
@@ -16,8 +22,8 @@ const GameGrid = () => {
       >
         {isLoading &&
           Skeletons.map((Skeletons) => (
-            <GameCardContainer>
-              <GameCardSkeleton key={Skeletons} />
+            <GameCardContainer key={Skeletons}>
+              <GameCardSkeleton />
             </GameCardContainer>
           ))}
         {data.map((game) => (
