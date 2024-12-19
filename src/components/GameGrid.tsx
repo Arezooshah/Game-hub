@@ -3,14 +3,17 @@ import useGames from "../Hooks/useGames";
 import GameCard from "./GameCard";
 import GameCardSkeleton from "./GameCardSkeleton";
 import GameCardContainer from "./GameCardContainer";
-import { Genre } from "../Hooks/useGenres";
-import { Props } from "react-infinite-scroll-component";
+// import { Genre } from "../Hooks/useGenres";
+// import { Props } from "react-infinite-scroll-component";
 
 interface props {
-  selectedGenre: Genre | null;
+  gameQuery: GameQuery;
+  // selectedGenre: Genre | null;
+  // selectedPlatform: Platform | null;
 }
-const GameGrid = ({ selectedGenre }: Props) => {
-  const { data, error, isLoading } = useGames(selectedGenre);
+
+const GameGrid = ({ gameQuery }: props) => {
+  const { data, error, isLoading } = useGames(gameQuery);
   const Skeletons = [1, 2, 3, 4, 5, 6];
   return (
     <>
