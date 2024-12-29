@@ -1,22 +1,6 @@
-// import { Platform } from "../Hooks/useGames";
 import { GameQuery } from "../App";
-// import platforms from "../Hooks/useGames";
 import useData from "./useData";
-// import { Genre } from "./useGenres";
-
-export interface Platform {
-  id: number;
-  name: string;
-  slug: string;
-}
-export interface Game {
-  id: number;
-  name: string;
-  background_image: string;
-  parent_platforms: { platform: Platform }[];
-  metacritic: number;
-  rating_top: number;
-}
+import { Genre } from "./useGenres";
 
 export interface Platform {
   id: number;
